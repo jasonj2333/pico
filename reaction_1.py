@@ -11,7 +11,7 @@ def button_handler(pin):
     print("Your reaction time was " + str(timer_reaction) + " milliseconds!")
 
 led.value(1)
-utime.sleep(urandom.uniform(5, 10))
+utime.sleep(urandom.uniform(2, 5))
 led.value(0)
 timer_start = utime.ticks_ms()
 button.irq(trigger=machine.Pin.IRQ_RISING, handler=button_handler)
