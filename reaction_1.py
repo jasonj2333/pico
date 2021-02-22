@@ -2,13 +2,16 @@ import machine
 import utime
 import urandom
 
+pressed = False
 led = machine.Pin(17, machine.Pin.OUT)
 button = machine.Pin(15, machine.Pin.IN, machine.Pin.PULL_DOWN)
 
 def button_handler(pin):
-    button.irq(handler=None)
-    timer_reaction = utime.ticks_diff(utime.ticks_ms(), timer_start)
-    print("Your reaction time was " + str(timer_reaction) + " milliseconds!")
+    global pressed
+    if not pressed:
+        pressed=True
+        timer_reaction = utime.ticks_diff(utime.ticks_ms(), timer_start)
+        print("Your reaction time was " + str(timer_reaction) + " milliseconds!")
 
 led.value(1)
 utime.sleep(urandom.uniform(2, 5))

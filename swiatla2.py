@@ -6,17 +6,17 @@ led_red = machine.Pin(11, machine.Pin.OUT)
 led_amber = machine.Pin(13, machine.Pin.OUT)
 led_green = machine.Pin(14, machine.Pin.OUT)
 button = machine.Pin(15, machine.Pin.IN, machine.Pin.PULL_DOWN)
-buzzer = machine.Pin(17, machine.Pin.OUT)
+buzzer = machine.Pin(19, machine.Pin.OUT)
 
 global button_pressed
 button_pressed = False
     
 def button_reader_thread():
     global button_pressed
-    global button
     while True:
         if button.value() == 1:
             button_pressed = True
+        utime.sleep(0.01)
             
 _thread.start_new_thread(button_reader_thread, ())
 

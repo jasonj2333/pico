@@ -8,13 +8,17 @@ right_button = machine.Pin(16, machine.Pin.IN, machine.Pin.PULL_DOWN)
 fastest_button = None
 timer_reaction = 0
 
+pressed = False
+
+
 def button_handler(pin):
-    left_button.irq(handler=None)
-    right_button.irq(handler=None)
-    global timer_reaction
-    timer_reaction = utime.ticks_diff(utime.ticks_ms(), timer_start)
-    global fastest_button
-    fastest_button = pin
+    global pressed
+    if not pressed:
+        pressed=True
+        global timer_reaction
+        timer_reaction = utime.ticks_diff(utime.ticks_ms(), timer_start)
+        global fastest_button
+        fastest_button = pin
 
 led.value(1)
 utime.sleep(urandom.uniform(2, 5))
