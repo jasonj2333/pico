@@ -13,7 +13,7 @@ HEIGHT = 64                                             # oled display height
 Pot = ADC(26)
 conversion_factor = 3.3 / (65535) # Conversion from Pin read to proper voltage
 
-speaker = PWM(Pin(20))
+speaker = PWM(Pin(19))
 
 i2c = I2C(1)                                            # Init I2C using I2C0 defaults, SCL=Pin(GP9), SDA=Pin(GP8), freq=400000
 

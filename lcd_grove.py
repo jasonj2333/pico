@@ -45,6 +45,9 @@ rhythm1 = [8,8]
 melody2 = ('c4','f4','a4','c5','','a4','c5')
 rhythm2 = [8,8,8,8,4,8,2]
 
+def bequiet():
+    buzzer.duty_u16(0)
+
 def play_melody(melody, rhythm):
     for tone, length in zip(melody, rhythm):
         beeper = PWM(Pin(20))

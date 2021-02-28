@@ -1,6 +1,6 @@
 from machine import Pin, PWM, ADC
 
-pwm = PWM(Pin(11))
+pwm = PWM(Pin(14))
 adc = ADC(Pin(26))
 
 pwm.freq(1000)
