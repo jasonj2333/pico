@@ -1,5 +1,5 @@
 from machine import Pin, Timer
-led = Pin(11, Pin.OUT)
+led = Pin(20, Pin.OUT)
 timer = Timer()
 
 def blink(timer):
