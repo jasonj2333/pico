@@ -15,7 +15,7 @@ conversion_factor = 3.3 / (65535) # Conversion from Pin read to proper voltage
 
 speaker = PWM(Pin(19))
 
-i2c = I2C(1)                                            # Init I2C using I2C0 defaults, SCL=Pin(GP9), SDA=Pin(GP8), freq=400000
+i2c = I2C(0, scl = Pin(1), sda = Pin(0))                                            # Init I2C using I2C0 defaults, SCL=Pin(GP9), SDA=Pin(GP8), freq=400000
 
 oled = SSD1306_I2C(WIDTH, HEIGHT, i2c)                  # Init oled display
 

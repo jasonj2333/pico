@@ -1,7 +1,7 @@
 from machine import Pin, PWM
 from utime import sleep
 from pitches import tones
-buzzer = PWM(Pin(18))
+buzzer = PWM(Pin(19))
 buzzer1 = PWM(Pin(19))
 
 song = ["E5","G5","A5","P","E5","G5","B5","A5","P","E5","G5","A5","P","G5","E5"]
