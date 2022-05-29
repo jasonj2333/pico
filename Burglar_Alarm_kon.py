@@ -4,7 +4,7 @@ import utime
 sensor_pir = machine.Pin(28, machine.Pin.IN, machine.Pin.PULL_DOWN)
 led = machine.Pin(17, machine.Pin.OUT)
 buzzer = machine.Pin(19, machine.Pin.OUT)
-kon = machine.Pin(16, machine.Pin.IN, machine.Pin.PULL_DOWN)
+kon = machine.Pin(16, machine.Pin.IN, machine.Pin.PULL_UP)
 
 def alarm():
     for i in range(50):
@@ -18,7 +18,7 @@ def pir_check(pin):
         alarm();
             
 def kon_check(pin):
-    if pin.value()==0:
+    if pin.value():
         print("ALARM! Motion detected! KON")
         alarm();
     
@@ -26,5 +26,5 @@ def kon_check(pin):
 while True:
     led.toggle()
     kon_check(kon)
-    pir_check(sensor_pir)
+    #pir_check(sensor_pir)
     utime.sleep(1)
