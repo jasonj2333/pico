@@ -74,6 +74,12 @@ def start():
         oled.blit(buff, 0, 0)
 
         oled.show()
+    else:
+        print('EduPico')
+        print('v3 - 2022')
+        print('Jerzy Jasonek')
+        print('-'*20)
+        
 
     utime.sleep(1)
     
@@ -85,6 +91,9 @@ def led():
         oled.fill(0)
         oled.text('Led - test', 5,10)
         oled.show()
+    else:
+        print('Led - test')
+        print('-'*20)
 
     red.value(1)
     yellow.value(0)
@@ -116,6 +125,9 @@ def police():
         oled.fill(0)
         oled.text('Police - test', 5,10)
         oled.show()
+    else:
+        print('Police - test')
+        print('-'*20)
 
     red2.value(0)
     blue.value(1)
@@ -154,6 +166,9 @@ def music():
         oled.text('Play song', 5,10)
         oled.text('- test', 5,20)
         oled.show()
+    else:
+        oled.text('Play song - test')
+        print('-'*20)
     playsong(song)
 
 ### RGB LED Test
@@ -163,6 +178,8 @@ def rgb_led():
         oled.text('RGB LED', 5,10)
         oled.text('- test', 5,20)
         oled.show()
+    else:
+        print("RGB LED - test")
     
     #RGB
     led_r.value(1) #To turn ON led #
@@ -238,6 +255,9 @@ def photoresistor():
             oled.text("light<= 15", 5, 40)
             oled.text("- stop test", 5, 50)
             oled.show()
+        else:
+            print("Photores - test", "| light: " + str(light) +"%", "| light<= 15 - stop test")
+            print('-'*20)
         utime.sleep(0.5) # set a delay between readings
         
     led.duty_u16(0)
@@ -262,6 +282,9 @@ def potentiometer_test():
             oled.text("Push GP16", 5, 40)
             oled.text("- stop test", 5, 50)
             oled.show()
+        else:
+            print("Potentiometer", "voltage: " + str(round(voltage, 2)), "Push GP16 - stop test")
+            print('-'*20)
         utime.sleep(0.3)
         
     if display: oled.fill(0)
@@ -281,6 +304,9 @@ def buttons_test():
         oled.text("Reset buttons", 5, 40)
         oled.text("- reload demo", 5, 50)
         oled.show()
+    else:
+        print("Buttons test - push buttons, Reset buttons - stop demo")
+        print('-'*20)
     while True:
         if button6.value() == 0:
             red.toggle()
