@@ -9,7 +9,7 @@ kon = machine.Pin(16, machine.Pin.IN, machine.Pin.PULL_UP)
 def alarm():
     for i in range(50):
             led.toggle()
-            #buzzer.toggle()
+            buzzer.toggle()
             utime.sleep_ms(100)
             
 def pir_check(pin):
@@ -21,7 +21,8 @@ def kon_check(pin):
     if pin.value():
         print("ALARM! Motion detected! KON")
         alarm();
-    
+
+print('Alarm start')
 
 while True:
     led.toggle()
